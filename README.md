@@ -20,6 +20,6 @@ its behavior.
 I was not able to setup much of a frontend due the lack of introduction to templates within the tutorial used. Logging in
 and maintaining a session within the browser was tricky but I know can be done with the proper setup of cookies.
 
-## Tutorials
+### Tutorials
 https://www.linkedin.com/learning/building-restful-apis-with-flask/
 https://flask.palletsprojects.com/en/1.1.x/
