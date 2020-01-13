@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
 import os
@@ -10,7 +10,7 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'planets.db')
-app.config['JWT_SECRET_KEY'] = 'super-secret'  # change this IRL
+app.config['JWT_SECRET_KEY'] = 'plmoknijbuhv'
 app.config['MAIL_SERVER']='smtp.mailtrap.io'
 app.config['MAIL_PORT'] = 2525
 app.config['MAIL_USERNAME'] = 'ac92537872b6a6'
@@ -75,7 +75,13 @@ def db_seed():
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return "Hello World"
+
+
+@app.route('/hello/')
+@app.route('/hello/<name>')
+def hello(name=None):
+    return render_template('hello.html', name=name)
 
 
 @app.route('/super_simple')
